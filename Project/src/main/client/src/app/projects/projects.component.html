@@ -1,0 +1,37 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Projects</h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <!--<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>-->
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <div class="dashboard-widget-content">
+        <div *ngFor="let project of projects; let i = index;" class="accordion" attr.id="accordion{{i}}" role="tablist" aria-multiselectable="true">
+          <div class="panel">
+            <div class="panel-heading" role="tab" attr.id="heading{{i}}" data-toggle="collapse" data-parent="#accordion" attr.href="#collapse{{i}}" aria-expanded="true" attr.aria-controls="collapse{{i}}">
+                <h3 class="panel-title pull-left">{{project.name}}</h3>
+                <button class="btn btn-sm btn-primary pull-right" (click)="addProject()">Import</button>
+                <div class="clearfix"></div>
+            </div>        
+            <div attr.id="collapse{{i}}" class="panel-collapse collapse" role="tabpanel" attr.aria-labelledby="heading{{i}}">
+              <div class="panel-body">
+                <ul>
+                  <li>Id: {{project.projectID}}</li>
+                  <li>Version: {{project.version}}</li>
+                  <li>Creation: {{project.creationDate}}</li>
+                  <li>Description: {{project.description}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

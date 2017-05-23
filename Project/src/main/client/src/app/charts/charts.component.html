@@ -1,0 +1,29 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Charts</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <div class="dashboard-widget-content">
+        Graph Type
+        <select [(ngModel)]="selectedGraph" (ngModelChange)="onTypeChange()">
+          <option *ngFor="let type of graphType" [value]="type">{{type}}</option>
+        </select>
+        Goal
+        <select [(ngModel)]="selectedGoal" (ngModelChange)="onGoalChange()">
+          <option *ngFor="let goal of goalsDisplay" [value]="goal">{{goal}}</option>
+        </select>
+        Metric
+        <select [(ngModel)]="selectedMetric" (ngModelChange)="onMetricChange()">
+          <option *ngFor="let metric of metricsDisplay" [value]="metric">{{metric}}</option>
+        </select>
+        <div class="clearfix"></div>
+        <div [hidden]="validData" class="jumbotron">
+          <h1>No Data To Show</h1>
+        </div>
+        <canvas [hidden]="!validData" chart ></canvas>
+      </div>
+    </div>
+  </div>
+</div>

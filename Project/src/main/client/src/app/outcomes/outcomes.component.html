@@ -1,0 +1,165 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    
+    <div class="x_title">
+      <h2>Planned Actions</h2>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="x_content">
+      <div class="dashboard-widget-content">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <!--ADD ACCORDION-->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingAdd">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAdd" aria-expanded="true" aria-controls="collapseAdd">
+                  Planned Add
+                </a>
+              </h4>
+            </div>
+            <div id="collapseAdd" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAdd">
+              <div class="panel-body">
+                <div *ngFor="let entry of planOut.ADD">
+                  
+                    <h4>Parent Id: {{entry.id}}</h4>
+                    <h4>Type: {{entry.type}}</h4>
+                    <div *ngFor="let attr of entry.element | outpipe">
+                      <h4>{{attr.key}}: {{attr.value}}</h4>
+                    </div>
+                    <hr>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--MOD ACCORDION-->
+           <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingMod">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMod" aria-expanded="true" aria-controls="collapseMod">
+                  Planned Mod
+                </a>
+              </h4>
+            </div>
+            <div id="collapseMod" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMod">
+              <div class="panel-body">
+                <div *ngFor="let entry of planOut.MOD">
+                  
+                    <!--<h4>Id: {{entry.id}}</h4>-->
+                    <h4>Type: {{entry.type}}</h4>
+                    <div *ngFor="let attr of entry.element | outpipe">
+                      <h4>{{attr.key}}: {{attr.value}}</h4>
+                    </div>
+                    <hr>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--DEL ACCORDION-->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDel">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDel" aria-expanded="true" aria-controls="collapseDel">
+                  Planned Del
+                </a>
+              </h4>
+            </div>
+            <div id="collapseDel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDel">
+              <div class="panel-body">
+                <div *ngFor="let entry of planOut.DEL">
+                  
+                    <h4>Id: {{entry.id}}</h4>
+                    <h4>Type: {{entry.type}}</h4>
+                    <hr>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--SCHEDULE ACCORDION-->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSch">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSch" aria-expanded="true" aria-controls="collapseSch">
+                  Planned Schedule Chart
+                </a>
+              </h4>
+            </div>
+            <div id="collapseSch" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSch">
+              <div class="panel-body">
+                <div *ngFor="let entry of scheduleChart">
+                  
+                  <h4>Phase: {{entry.fase}}</h4>
+                  <h4>Start Date: {{entry.startDate}}</h4>
+                  <h4>Last Date: {{entry.lastDate}}</h4>
+                  <hr>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+                  <!-- REPORT ACCORDION -->
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingR">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseR" aria-expanded="true" aria-controls="collapseR">
+                  Planned Report
+                </a>
+              </h4>
+            </div>
+            <div id="collapseR" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingR">
+              <div class="panel-body">
+                <div>
+                  Report : {{report}}
+                  <hr>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--END ACCORDIONS-->
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" required [(ngModel)]="newCycle"> Set New Cycle
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div>
+      <button class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target=".del-element" (click)="onSending()">Send Outcomes</button>
+    </div>
+
+  </div>
+</div>
+
+<!--ALERT MESSAGE (HIDDEN)-->
+
+<div class="modal fade bs-example-modal-sm del-element" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel2">Communicate Outcomes</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Outcomes correctly sent!</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--ALERT MESSAGE-->

@@ -1,0 +1,20 @@
+.panel .panel-heading {
+  z-index: 1;
+}
+.panel-heading h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: normal;
+    width: 75%;
+    padding-top: 8px;
+    cursor: pointer;
+}
+
+.panel-heading button {
+  z-index: 9
+}
+
+.panel-body ul li {
+  list-style-type: none;
+}

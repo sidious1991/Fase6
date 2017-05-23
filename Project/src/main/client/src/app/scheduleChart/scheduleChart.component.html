@@ -1,0 +1,58 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    
+    <div class="x_title">
+      <h2>ScheduleChart</h2>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="x_content">
+      <div class="dashboard-widget-content">
+
+        <div class="panel-heading">
+          <button class="btn btn-sm btn-warning pull-right" data-toggle="modal" data-target=".modify-element">Modify</button>
+          <div class="clearfix"></div>
+        </div>
+
+        <div [hidden]="existSchedule" class="jumbotron">
+          <h1>No Data To Show</h1>
+        </div>
+        <canvas [hidden]="!existSchedule" scheduleChart ></canvas>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-lg modify-element" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Modify</h4>
+      </div>
+      <div class="modal-body">
+        <form #modForm="ngForm" class="form-horizontal form-label-left">
+          <div class="form-group" *ngFor="let item of scheduleChart; let i = index">
+            
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" attr.for="{{item.fase}}">{{item.fase}}</label>
+              <div class="col-md-6 col-sm-6 col-xs-12" >
+                <input type="text" attr.id="{{item.fase}}0" name="{{item.fase}}0" value="{{item.startDate}}" class="form-control col-md-7 col-xs-12" ngModel={{item.startDate}}>
+                <input type="text" attr.id="{{item.fase}}1" name="{{item.fase}}1" value="{{item.lastDate}}" class="form-control col-md-7 col-xs-12" ngModel={{item.lastDate}}>
+              </div>
+            
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" (click)=modifySch(modForm.value) class="btn btn-success" data-dismiss="modal">Modify</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

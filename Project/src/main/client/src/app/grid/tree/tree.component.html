@@ -1,0 +1,66 @@
+<div attr.id="{{spawnId()}}" class="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel">
+    <div class="panel-heading" role="tab" attr.id="heading{{getId()}}">
+        <a class="panel-title pull-left panel-title-a" aria-expanded="true" attr.aria-controls="collapse{{getId()}}" attr.href="#collapse{{getId()}}" role="button" data-toggle="collapse" data-parent="#accordion">
+          {{_utilService.printTitle(project)}}
+          <div [ngSwitch]="whatAmI(project)">
+            <span *ngSwitchCase="'Goal'" [className]="getStatusStyle(project)">{{getStatus(project)}}</span>
+          </div>
+        </a>
+        <button class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target=".del-element" (click)="onDeleteElement(project)">Delete</button>
+        <button class="btn btn-sm btn-warning pull-right" data-toggle="modal" data-target=".modify-element" (click)="onModElement(project)">Modify</button>
+        <div [ngSwitch]="whatAmI(project)" class="pull-right">
+          <div *ngSwitchCase="'Project'" class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li ><a data-toggle="modal" data-target=".add-element" (click)="onAddElement(project, 'Goal')">Goal</a></li>
+            </ul>
+          </div>
+          <div *ngSwitchCase="'Goal'" class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="modal" data-target=".add-element" (click)="onAddElement(project, 'Strategy')">Strategy</a></li>
+              <li><a data-toggle="modal" data-target=".add-element" (click)="onAddElement(project, 'MeasurementGoal')">Measurement Goal</a></li>
+            </ul>
+          </div>
+          <div *ngSwitchCase="'MeasurementGoal'" class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="modal" data-target=".add-element" (click)="onAddElement(project, 'Question')">Question</a></li>
+              <li><a data-toggle="modal" data-target=".add-element" (click)="onAddElement(project, 'Metric')">Metric</a></li>
+            </ul>
+          </div>
+          <div *ngSwitchCase="'Strategy'" class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Add <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="modal" data-target=".add-element" (click)="onAddElement(project, 'Goal')">Goal</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div attr.id="collapse{{getId()}}" class="panel-collapse collapse" role="tabpanel" attr.aria-labelledby="heading{{getId()}}">
+      <div class="panel-body">
+        <div *ngFor="let entry of project | tree">
+          <div *ngIf="isArray(entry.value)">
+            <div *ngFor="let v of entry.value">
+              <tree-cmp [project]="v" [status]="status"></tree-cmp>
+            </div>
+          </div>
+          <div [hidden]="!entry.value || entry.value.length === 0" *ngIf="!isArray(entry.value)">
+            <h3 class="panel-title pull-left">{{entry.key}}: {{entry.value}}</h3>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

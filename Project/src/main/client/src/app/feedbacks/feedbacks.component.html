@@ -1,0 +1,446 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+     <div class="x_panel">
+       <div class="x_title">
+          <h2>Feedbacks</h2>
+          <div class="clearfix"></div>
+       </div>
+     <div class="x_content">
+
+       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-info">
+            <div class="panel-heading" role="tab" id="headingFeedback">
+              <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFeedback" aria-expanded="false" aria-controls="collapseFeedback">
+              FeedBack
+              </a>
+              </h4>
+             </div>
+            <div id="collapseFeedback" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFeedback">
+              <div class="panel-body">
+                <div>
+                  <div class="panel-group" id="accordion-interno" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-success">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                  <a role="button" (click)="showFeedback(1)" data-toggle="collapse" data-parent="#accordion-interno" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Fase1
+                  </a>
+                  </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <div class="x_panel">
+                    <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Feedbacks fase 1 <small>Priorità/UltimaModifica/Conclusione/Descizione</small></h2>
+                    <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Alta</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Media</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Bassa</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                           <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Alta'" > 
+                                  <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                         </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                         
+                          <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Media'" > 
+                                  <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                        <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Bassa'" > 
+                                  <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              
+  
+                  </div>
+                  </div>
+
+                  <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                  <a role="button" (click)="showFeedback(2)" data-toggle="collapse" data-parent="#accordion-interno" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                  Fase2
+                  </a>
+                  </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                      <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Feedbacks fase 2 <small>Priorità/Descizione</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1-2" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Alta</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2-2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Media</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3-2" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Bassa</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1-2" aria-labelledby="home-tab">
+                          
+                          
+                             <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Alta'" > 
+                                  <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                          
+                         
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2-2" aria-labelledby="profile-tab">
+                         
+                          <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Media'" > 
+                                  <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3-2" aria-labelledby="profile-tab">
+                       
+                        <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Bassa'" > 
+                                  <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                <div class = "clearfix"></div>
+                                </div>
+                        </div>
+                        
+                        </div>
+                      
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                  </div>
+                  </div>
+
+                  <div class="panel-heading" role="tab" id="headingThree">
+                  <h4 class="panel-title">
+                  <a role="button" (click)="showFeedback(3)" data-toggle="collapse" data-parent="#accordion-interno" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                  Fase3
+                  </a>
+                  </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  <div class="panel-body">
+                     <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Feedbacks fase 3 <small>Priorità/Descizione</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1-3" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Alta</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2-3" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Media</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3-3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Bassa</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1-3" aria-labelledby="home-tab">
+                          
+                          
+                             <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Alta'" > 
+                                  <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                          
+                         
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2-3" aria-labelledby="profile-tab">
+                         
+                          <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Media'" > 
+                                          <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul> 
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3-3" aria-labelledby="profile-tab">
+                        <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Bassa'" > 
+                                          <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                  </div>
+                  </div>
+
+                  <div class="panel-heading" role="tab" id="headingfour">
+                  <h4 class="panel-title">
+                  <a role="button" (click) = "showFeedback(4)" data-toggle="collapse" data-parent="#accordion-interno" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                  Fase4
+                  </a>
+                  </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="panel-body">
+                       <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Feedbacks fase 4 <small>Priorità/Descizione</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1-4" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Alta</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2-4" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Media</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3-4" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Bassa</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1-4" aria-labelledby="home-tab">
+                          
+                          
+                             <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Alta'" > 
+                                          <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                          
+                         
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2-4" aria-labelledby="profile-tab">
+                         
+                          <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Media'" > 
+                                      <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3-4" aria-labelledby="profile-tab">
+                        <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Bassa'" > 
+                                        <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                  </div>
+                  </div>
+
+                  <div class="panel-heading" role="tab" id="headingFive">
+                  <h4 class="panel-title">
+                  <a role="button" (click) = "showFeedback(5)" data-toggle="collapse" data-parent="#accordion-interno" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                  Fase5
+                  </a>
+                  </h4>
+                  </div>
+                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                  <div class="panel-body">
+                     <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Feedbacks fase 5 <small>Priorità/Descizione</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1-5" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Alta</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2-5" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Media</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3-5" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Bassa</a>
+                        </li>
+                      </ul>
+                      <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1-5" aria-labelledby="home-tab">
+                          
+                          
+                             <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Alta'" > 
+                                        <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                          
+                         
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2-5" aria-labelledby="profile-tab">
+                         
+                          <div *ngFor="let dim of RRPriority,let i = index">
+                                <div *ngIf = "dim == 'Media'" > 
+                                         <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul> 
+                                 <br>
+                                 <hr>
+                                  <div class = "clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3-5" aria-labelledby="profile-tab">
+                        <div *ngFor="let dim of RRPriority,let i = index">
+                                
+                                <div *ngIf = "dim == 'Bassa'" > 
+                                      <ul>
+                                    <li>  Ultima Modifica : {{ RRlastModfied[i] }} </li>
+                                    <li>  Conclusioni : {{ RRconclusion[i] }} </li>
+                                    <li>  Descrizione : {{ RRDescription[i] }} </li>
+                                  </ul>
+                                 <br>
+                                 <hr>
+                                <div class = "clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div> 
+        </div>  
+     </div>
+     </div>
+</div>

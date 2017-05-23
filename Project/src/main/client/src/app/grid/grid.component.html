@@ -1,0 +1,98 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>GQM+Strategies Grid</h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a  linkTo="/Fase6/feedbacks" class="collapse-link"><i class="fa fa-commenting-o"></i> Feedback</a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <div class="dashboard-widget-content">
+        <tree-cmp [project]="getProject()" [status]="status"></tree-cmp>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg modify-element" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Modify</h4>
+      </div>
+      <div class="modal-body">
+        <form #modForm="ngForm" class="form-horizontal form-label-left">
+          <div class="form-group" *ngFor="let item of element | tree">
+            <div *ngIf="!isObjectArray(item.value)">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" attr.for="{{item.key}}">{{item.key}}</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" attr.id="{{item.key}}" name="{{item.key}}" value="{{item.value}}" class="form-control col-md-7 col-xs-12" ngModel={{item.value}}>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" (click)=planModify(modForm.value) class="btn btn-success" data-dismiss="modal">Plan</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg add-element" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </button>
+        <h4 class="modal-title" id="addModalLabel">Add {{addTemplate.type}}</h4>
+      </div>
+      <div class="modal-body">
+        <form #addForm="ngForm" class="form-horizontal form-label-left">
+          <div class="form-group" *ngFor="let item of addTemplate.template | tree">
+            <div *ngIf="!isObjectArray(item.value)">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" attr.for="{{item.key}}">{{item.key}}</label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" attr.id="{{item.key}}" name="{{item.key}}" value="{{item.value}}" class="form-control col-md-7 col-xs-12" ngModel={{item.value}}>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" (click)=planAdd(addForm.value) class="btn btn-success" data-dismiss="modal">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm del-element" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel2">Delete</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Delete {{printDelTitle()}}?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="planDelete()">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>
